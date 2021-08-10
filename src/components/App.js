@@ -17,6 +17,26 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    const contacts = localStorage.getItem("contacts");
+    const parsedContacts = JSON.parse(contacts);
+
+    console.log(parsedContacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const prevContacts = prevState.contacts;
+    const newContacts = this.state.contacts;
+
+    if (newContacts !== prevContacts) {
+      localStorage.setItem("contacts", JSON.stringify(newContacts));
+    }
+  }
+
   addContact = (newContact) => {
     if (this.checkDoubleName(newContact)) {
       alert(`${newContact.name} уже есть в контактах.`);

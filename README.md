@@ -4,3 +4,7 @@
 
 "predeploy": "npm run build",
 "deploy": "gh-pages -d build",
+
+npm install --save-dev prettier eslint
+
+npx mrm lint-staged

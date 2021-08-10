@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Filter = ({ filter, onChange }) => {
   return (
     <label className="filter-input">
-      Поиск:
+      search:
       <input
         className="filter-input__text"
         type="text"
